@@ -1,0 +1,892 @@
+/* =========================================================
+   TRUCK DRIVER SCENE
+========================================================= */
+
+.truck-scene {
+  position: relative;
+  width: 100%;
+  height: 390px;
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  background: #020811;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   SKY
+========================================================= */
+
+.truck-sky {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    radial-gradient(
+      circle at 86% 22%,
+      rgba(255, 214, 125, 0.15),
+      transparent 18%
+    ),
+    linear-gradient(
+      to bottom,
+      #020810 0%,
+      #061321 58%,
+      #091722 100%
+    );
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.truck-stars {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.9) 1.5px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.65) 1.2px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 210, 110, 0.7) 1.2px,
+      transparent 2px
+    );
+
+  background-size:
+    135px 120px,
+    190px 150px,
+    250px 180px;
+
+  background-position:
+    20px 10px,
+    80px 40px,
+    30px 90px;
+
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   MOON
+========================================================= */
+
+.truck-moon {
+  position: absolute;
+
+  top: 38px;
+  right: 12%;
+
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  background: #fff1c9;
+
+  box-shadow:
+    0 0 18px rgba(255, 231, 172, 0.8),
+    0 0 50px rgba(255, 213, 120, 0.35),
+    0 0 100px rgba(255, 213, 120, 0.15);
+}
+
+
+/* =========================================================
+   MOUNTAINS
+========================================================= */
+
+.truck-mountains {
+  position: absolute;
+
+  left: 0;
+
+  width: 100%;
+
+  pointer-events: none;
+}
+
+
+/* Back mountains */
+
+.truck-mountains.back {
+  bottom: 112px;
+
+  height: 145px;
+
+  z-index: 4;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent 49%,
+      #0a1b2c 50%
+    ),
+    linear-gradient(
+      225deg,
+      transparent 49%,
+      #0a1b2c 50%
+    );
+
+  background-size: 420px 145px;
+
+  background-position: 0 0;
+}
+
+
+/* Front mountains */
+
+.truck-mountains.front {
+  bottom: 95px;
+
+  height: 120px;
+
+  z-index: 5;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent 49%,
+      #071525 50%
+    ),
+    linear-gradient(
+      225deg,
+      transparent 49%,
+      #071525 50%
+    );
+
+  background-size: 330px 125px;
+
+  background-position: 80px 0;
+}
+
+
+/* =========================================================
+   DISTANT ROAD LIGHTS
+========================================================= */
+
+.distant-road-lights {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: 108px;
+
+  height: 20px;
+
+  z-index: 7;
+
+  pointer-events: none;
+}
+
+.distant-road-lights span {
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #e4a52f;
+
+  box-shadow:
+    0 0 8px rgba(228, 165, 47, 0.7);
+}
+
+.distant-road-lights span:nth-child(1) {
+  left: 8%;
+}
+
+.distant-road-lights span:nth-child(2) {
+  left: 22%;
+}
+
+.distant-road-lights span:nth-child(3) {
+  left: 39%;
+}
+
+.distant-road-lights span:nth-child(4) {
+  left: 54%;
+}
+
+.distant-road-lights span:nth-child(5) {
+  left: 69%;
+}
+
+.distant-road-lights span:nth-child(6) {
+  left: 83%;
+}
+
+.distant-road-lights span:nth-child(7) {
+  left: 94%;
+}
+
+
+/* =========================================================
+   DESI DHABA
+========================================================= */
+
+.truck-dhaba {
+  position: absolute;
+
+  right: 5%;
+  bottom: 72px;
+
+  width: 195px;
+  height: 115px;
+
+  z-index: 14;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #21140c,
+      #120d09
+    );
+
+  border: 2px solid #8c551d;
+
+  border-radius: 5px;
+
+  box-shadow:
+    0 0 20px rgba(220, 137, 40, 0.18);
+}
+
+
+/* Dhaba roof */
+
+.dhaba-roof {
+  position: absolute;
+
+  top: -18px;
+  left: -13px;
+
+  width: calc(100% + 26px);
+  height: 28px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #a94b18,
+      #70300f
+    );
+
+  border-radius: 5px;
+
+  border-bottom: 2px solid #bd7022;
+}
+
+
+/* Dhaba board */
+
+.dhaba-board {
+  position: absolute;
+
+  top: 27px;
+  left: 18px;
+  right: 18px;
+
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffd16b;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+
+  background: #1a1009;
+
+  border: 1px solid #82501b;
+
+  text-shadow:
+    0 0 8px rgba(255, 186, 72, 0.25);
+}
+
+
+/* Dhaba door */
+
+.dhaba-door {
+  position: absolute;
+
+  left: 25px;
+  bottom: 0;
+
+  width: 45px;
+  height: 52px;
+
+  background: #08090b;
+
+  border: 1px solid #603c18;
+}
+
+
+/* Dhaba window */
+
+.dhaba-window {
+  position: absolute;
+
+  right: 18px;
+  bottom: 0;
+
+  width: 65px;
+  height: 44px;
+
+  display: flex;
+
+  gap: 2px;
+
+  background: #08090b;
+
+  border: 1px solid #754718;
+}
+
+.dhaba-window span {
+  flex: 1;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 187, 80, 0.25),
+      rgba(255, 157, 40, 0.05)
+    );
+}
+
+
+/* Dhaba glow */
+
+.dhaba-glow {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  width: 100px;
+  height: 90px;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 166, 53, 0.12),
+      transparent 70%
+    );
+}
+
+
+/* =========================================================
+   ROAD
+========================================================= */
+
+.truck-road {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 125px;
+
+  z-index: 8;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #1a2429 0%,
+      #11191e 55%,
+      #080f14 100%
+    );
+
+  border-top:
+    1px solid rgba(190, 133, 36, 0.25);
+}
+
+
+.truck-road::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 0;
+
+  height: 2px;
+
+  background:
+    rgba(207, 143, 32, 0.25);
+}
+
+
+/* Road edge */
+
+.road-edge {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 48px;
+
+  height: 2px;
+
+  background:
+    rgba(207, 143, 32, 0.15);
+}
+
+
+/* =========================================================
+   ROAD MARKERS
+========================================================= */
+
+.road-marker {
+  position: absolute;
+
+  bottom: 28px;
+
+  width: 70px;
+  height: 4px;
+
+  border-radius: 10px;
+
+  background: #d8d8d8;
+
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.15);
+
+  animation:
+    roadMarkerMove 1.35s linear infinite;
+}
+
+.marker-1 {
+  left: 5%;
+}
+
+.marker-2 {
+  left: 28%;
+
+  animation-delay: -0.34s;
+}
+
+.marker-3 {
+  left: 52%;
+
+  animation-delay: -0.68s;
+}
+
+.marker-4 {
+  left: 78%;
+
+  animation-delay: -1.02s;
+}
+
+
+@keyframes roadMarkerMove {
+
+  from {
+    transform: translateX(130px);
+  }
+
+  to {
+    transform: translateX(-170px);
+  }
+}
+
+
+/* =========================================================
+   CENTER ROAD LINE
+========================================================= */
+
+.road-center-line {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: 70px;
+
+  height: 4px;
+
+  background:
+    repeating-linear-gradient(
+      to right,
+      rgba(201, 158, 68, 0.75) 0 65px,
+      transparent 65px 175px
+    );
+
+  animation:
+    centerRoadMove 1.5s linear infinite;
+}
+
+
+@keyframes centerRoadMove {
+
+  from {
+    background-position: 175px 0;
+  }
+
+  to {
+    background-position: -175px 0;
+  }
+}
+
+
+/* =========================================================
+   TRUCK
+========================================================= */
+
+.truck-moving {
+  position: absolute;
+
+  width: min(900px, 82%);
+
+  height: auto;
+
+  left: 2%;
+
+  /*
+    Truck stays on the road.
+    Scene is now shorter, so this keeps
+    the wheels aligned with the road.
+  */
+  bottom: 10px;
+
+  z-index: 30;
+
+  animation:
+    truckMoveRight 7s ease-in-out infinite alternate;
+
+  will-change: left;
+}
+
+
+.truck-image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TRUCK MOVEMENT
+========================================================= */
+
+@keyframes truckMoveRight {
+
+  0% {
+    left: 2%;
+  }
+
+  25% {
+    left: 6%;
+  }
+
+  50% {
+    left: 12%;
+  }
+
+  75% {
+    left: 17%;
+  }
+
+  100% {
+    left: 21%;
+  }
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+
+  .truck-scene {
+    height: 400px;
+  }
+
+  .truck-moving {
+    width: min(900px, 82%);
+
+    bottom: 18px;
+  }
+
+  @keyframes truckMoveRight {
+
+    0% {
+      left: 2%;
+    }
+
+    25% {
+      left: 6%;
+    }
+
+    50% {
+      left: 11%;
+    }
+
+    75% {
+      left: 16%;
+    }
+
+    100% {
+      left: 21%;
+    }
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .truck-scene {
+    height: 370px;
+
+    border-radius: 26px;
+  }
+
+  .truck-road {
+    height: 118px;
+  }
+
+  .truck-moving {
+    width: 700px;
+
+    max-width: 86%;
+
+    bottom: 16px;
+
+    animation:
+      truckMoveTablet 7s ease-in-out infinite alternate;
+  }
+
+
+  @keyframes truckMoveTablet {
+
+    0% {
+      left: 2%;
+    }
+
+    50% {
+      left: 7%;
+    }
+
+    100% {
+      left: 13%;
+    }
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .truck-scene {
+    height: 335px;
+
+    border-radius: 22px;
+  }
+
+
+  .truck-moon {
+    width: 58px;
+    height: 58px;
+
+    top: 30px;
+    right: 10%;
+  }
+
+
+  .truck-mountains.back {
+    bottom: 105px;
+    height: 120px;
+  }
+
+
+  .truck-mountains.front {
+    bottom: 92px;
+    height: 105px;
+  }
+
+
+  .distant-road-lights {
+    bottom: 98px;
+  }
+
+
+  .truck-dhaba {
+    width: 135px;
+    height: 86px;
+
+    right: 4%;
+    bottom: 66px;
+  }
+
+
+  .dhaba-roof {
+    top: -15px;
+  }
+
+
+  .dhaba-board {
+    top: 19px;
+
+    height: 23px;
+
+    left: 10px;
+    right: 10px;
+
+    font-size: 9px;
+  }
+
+
+  .dhaba-door {
+    left: 15px;
+
+    width: 30px;
+    height: 40px;
+  }
+
+
+  .dhaba-window {
+    right: 10px;
+
+    width: 45px;
+    height: 33px;
+  }
+
+
+  .truck-road {
+    height: 112px;
+  }
+
+
+  .road-edge {
+    top: 43px;
+  }
+
+
+  .road-marker {
+    bottom: 24px;
+
+    width: 55px;
+  }
+
+
+  .road-center-line {
+    bottom: 62px;
+  }
+
+
+  .truck-moving {
+    width: 570px;
+
+    max-width: none;
+
+    bottom: 15px;
+
+    animation:
+      truckMoveMobile 6.5s ease-in-out infinite alternate;
+  }
+
+
+  @keyframes truckMoveMobile {
+
+    0% {
+      left: -2%;
+    }
+
+    50% {
+      left: 3%;
+    }
+
+    100% {
+      left: 8%;
+    }
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .truck-scene {
+    height: 320px;
+  }
+
+
+  .truck-moving {
+    width: 500px;
+
+    bottom: 13px;
+
+    animation:
+      truckMoveSmall 6s ease-in-out infinite alternate;
+  }
+
+
+  @keyframes truckMoveSmall {
+
+    0% {
+      left: -3%;
+    }
+
+    50% {
+      left: 2%;
+    }
+
+    100% {
+      left: 6%;
+    }
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .truck-moving,
+  .road-marker,
+  .road-center-line {
+    animation: none;
+  }
+}

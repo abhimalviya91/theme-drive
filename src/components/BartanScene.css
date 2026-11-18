@@ -1,0 +1,67 @@
+/* ===== BARTAN & BEATS IMAGE SCENE ===== */
+
+.bartan-scene {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: min(1100px, 94vw);
+  height: 420px;
+  flex-shrink: 0;
+  margin: 0 auto;
+  border: 1px solid rgba(192, 132, 252, 0.45);
+  border-radius: 20px;
+  background: #100b1b;
+  box-shadow:
+    0 0 25px rgba(168, 85, 247, 0.2),
+    0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.bartan-background-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease;
+}
+
+.bartan-scene:hover .bartan-background-image {
+  transform: scale(1.02);
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+  .bartan-scene {
+    width: 96%;
+    height: 360px;
+    border-radius: 16px;
+  }
+
+  .bartan-background-image {
+    object-position: center;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .bartan-scene {
+    height: 360px;
+    border-radius: 12px;
+  }
+
+  .bartan-background-image {
+    object-position: 58% center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bartan-background-image {
+    transition: none;
+  }
+
+  .bartan-scene:hover .bartan-background-image {
+    transform: none;
+  }
+}

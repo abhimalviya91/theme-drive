@@ -1,0 +1,950 @@
+/* =========================================
+   PAPA'S CLASSICS — VINTAGE RADIO SCENE
+========================================= */
+
+.papa-scene {
+  --papa-gold: #e9b96e;
+  --papa-amber: #ffbd59;
+  --papa-dark: #170e08;
+
+  position: relative;
+  isolation: isolate;
+
+  width: min(1100px, 94vw);
+  height: 500px;
+
+  flex-shrink: 0;
+  overflow: hidden;
+
+  border: 1px solid rgba(233, 185, 110, 0.25);
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 35%,
+      rgba(157, 91, 34, 0.3),
+      transparent 48%
+    ),
+    linear-gradient(
+      180deg,
+      #302014 0%,
+      #1b120c 65%,
+      #100a06 100%
+    );
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.55),
+    inset 0 0 70px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================
+   AMBIENT LIGHT
+========================================= */
+
+.papa-ambient-glow {
+  position: absolute;
+
+  top: -100px;
+  left: 50%;
+
+  width: 650px;
+  height: 400px;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 176, 74, 0.2),
+    transparent 70%
+  );
+
+  filter: blur(15px);
+  animation: papaAmbient 5s ease-in-out infinite alternate;
+}
+
+@keyframes papaAmbient {
+  from {
+    opacity: 0.55;
+    transform: translateX(-50%) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.08);
+  }
+}
+
+/* =========================================
+   BACK WALL
+========================================= */
+
+.papa-back-wall {
+  position: absolute;
+  inset: 0;
+}
+
+.papa-wall-light {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 2px;
+  height: 100px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 188, 92, 0.8)
+  );
+
+  box-shadow: 0 0 45px 15px rgba(255, 170, 60, 0.12);
+}
+
+.papa-shelf {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 75px;
+
+  height: 12px;
+
+  background: linear-gradient(
+    to bottom,
+    #714322,
+    #29170b
+  );
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.papa-shelf-line {
+  height: 2px;
+  background: rgba(255, 196, 111, 0.3);
+}
+
+/* =========================================
+   FLOATING DUST
+========================================= */
+
+.papa-dust {
+  position: absolute;
+  z-index: 1;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #ffdba0;
+  box-shadow: 0 0 12px rgba(255, 190, 100, 0.8);
+
+  animation: papaDustFloat 7s linear infinite;
+}
+
+.papa-dust-one {
+  left: 15%;
+  top: 35%;
+}
+
+.papa-dust-two {
+  left: 78%;
+  top: 30%;
+  animation-delay: -2s;
+}
+
+.papa-dust-three {
+  left: 25%;
+  top: 70%;
+  animation-delay: -4s;
+}
+
+.papa-dust-four {
+  left: 88%;
+  top: 65%;
+  animation-delay: -5s;
+}
+
+@keyframes papaDustFloat {
+  0% {
+    transform: translateY(35px);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+/* =========================================
+   RADIO WRAPPER
+========================================= */
+
+.papa-radio-wrapper {
+  position: absolute;
+  z-index: 5;
+
+  top: 35px;
+  left: 50%;
+
+  width: 570px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.4));
+}
+
+/* =========================================
+   MAIN RADIO BODY
+========================================= */
+
+.papa-radio {
+  position: relative;
+
+  width: 100%;
+  padding: 15px 18px 12px;
+
+  border: 2px solid #8b5b31;
+  border-radius: 12px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 220, 170, 0.025) 0,
+      rgba(255, 220, 170, 0.025) 2px,
+      transparent 2px,
+      transparent 7px
+    ),
+    linear-gradient(
+      135deg,
+      #744321,
+      #3b2112 35%,
+      #6a3c1e 65%,
+      #29160b
+    );
+
+  box-shadow:
+    inset 0 2px 4px rgba(255, 220, 170, 0.3),
+    inset 0 -8px 15px rgba(0, 0, 0, 0.4),
+    0 0 0 5px rgba(22, 12, 5, 0.7);
+}
+
+/* Radio top */
+
+.papa-radio-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 7px 12px;
+
+  color: #f0c991;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.papa-radio-power {
+  color: #ffb84d;
+  font-size: 9px;
+  letter-spacing: 1px;
+
+  text-shadow: 0 0 10px rgba(255, 174, 66, 0.7);
+}
+
+/* =========================================
+   RADIO FRONT
+========================================= */
+
+.papa-radio-front {
+  display: grid;
+
+  grid-template-columns: 145px 1fr 75px;
+  align-items: center;
+
+  gap: 15px;
+
+  min-height: 160px;
+
+  padding: 17px;
+
+  border: 1px solid rgba(255, 205, 139, 0.17);
+  border-radius: 6px;
+
+  background: linear-gradient(
+    145deg,
+    #26170e,
+    #160d07
+  );
+}
+
+/* =========================================
+   SPEAKER
+========================================= */
+
+.papa-speaker {
+  width: 130px;
+  height: 130px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    145deg,
+    #8a572f,
+    #2a170b
+  );
+
+  box-shadow:
+    inset 0 0 0 3px #b17a45,
+    0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.papa-speaker-ring {
+  width: 112px;
+  height: 112px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 5px solid #5b3820;
+  border-radius: 50%;
+
+  background: repeating-radial-gradient(
+    circle,
+    #34251a 0,
+    #34251a 2px,
+    #1d140d 3px,
+    #1d140d 5px
+  );
+
+  animation: papaSpeakerPulse 2s ease-in-out infinite;
+}
+
+.papa-speaker-inner {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 4px solid #8b633d;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    #1b1009,
+    #56351e
+  );
+}
+
+.papa-speaker-center {
+  width: 15px;
+  height: 15px;
+
+  border: 3px solid #d4a16b;
+  border-radius: 50%;
+
+  background: #25150a;
+}
+
+@keyframes papaSpeakerPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.025);
+  }
+}
+
+/* =========================================
+   RADIO CENTER
+========================================= */
+
+.papa-radio-center {
+  min-width: 0;
+  text-align: center;
+}
+
+.papa-radio-brand {
+  margin-bottom: 9px;
+
+  color: #eec58e;
+
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+/* Radio frequency dial */
+
+.papa-radio-dial {
+  position: relative;
+
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 0 5px;
+
+  overflow: hidden;
+
+  border: 2px solid #a17a4e;
+  border-radius: 4px;
+
+  background: linear-gradient(
+    180deg,
+    #f1c982,
+    #b7864b
+  );
+
+  color: #39210e;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  box-shadow:
+    inset 0 0 10px rgba(0, 0, 0, 0.25),
+    0 0 18px rgba(255, 184, 82, 0.12);
+}
+
+.papa-radio-dial span {
+  position: relative;
+  z-index: 2;
+}
+
+.papa-dial-indicator {
+  position: absolute;
+
+  top: 4px;
+  bottom: 4px;
+  left: 65%;
+
+  width: 2px;
+
+  background: #8b180d;
+
+  box-shadow: 0 0 5px rgba(139, 24, 13, 0.7);
+}
+
+.papa-radio-message {
+  margin-top: 8px;
+
+  color: #e6b976;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   EQUALIZER
+========================================= */
+
+.papa-radio-equalizer {
+  height: 23px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+
+  margin-top: 8px;
+}
+
+.papa-radio-equalizer span {
+  width: 4px;
+  height: 8px;
+
+  border-radius: 2px;
+
+  background: #ffb94f;
+  box-shadow: 0 0 8px rgba(255, 185, 79, 0.5);
+
+  animation: papaEqualizer 0.8s ease-in-out infinite alternate;
+}
+
+.papa-radio-equalizer span:nth-child(2n) {
+  animation-delay: -0.3s;
+}
+
+.papa-radio-equalizer span:nth-child(3n) {
+  animation-delay: -0.55s;
+}
+
+@keyframes papaEqualizer {
+  from {
+    height: 4px;
+    opacity: 0.55;
+  }
+
+  to {
+    height: 21px;
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   RADIO KNOBS
+========================================= */
+
+.papa-radio-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.papa-knob {
+  width: 40px;
+  height: 40px;
+
+  margin-bottom: 4px;
+
+  border: 3px solid #a47b4d;
+  border-radius: 50%;
+
+  background: conic-gradient(
+    #21130a,
+    #a47747,
+    #3b2514,
+    #9b6a3c,
+    #21130a
+  );
+
+  box-shadow:
+    inset 0 0 0 3px #3b2413,
+    0 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.papa-knob-small {
+  width: 29px;
+  height: 29px;
+
+  margin-top: 8px;
+}
+
+.papa-knob-label {
+  color: #c79a66;
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   RADIO BOTTOM
+========================================= */
+
+.papa-radio-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 12px 0;
+
+  color: #d5a773;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* =========================================
+   CASSETTE DECK
+========================================= */
+
+.papa-cassette-deck {
+  position: relative;
+
+  width: 330px;
+
+  margin-top: 13px;
+  padding: 12px 15px 10px;
+
+  border: 2px solid #82532f;
+  border-radius: 8px;
+
+  background: linear-gradient(
+    135deg,
+    #58351c,
+    #26150b 55%,
+    #684023
+  );
+
+  box-shadow:
+    inset 0 1px 3px rgba(255, 224, 174, 0.25),
+    0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+.papa-deck-label {
+  margin-bottom: 8px;
+
+  text-align: center;
+
+  color: #e5bc83;
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+/* =========================================
+   CASSETTE BODY
+========================================= */
+
+.papa-cassette {
+  position: relative;
+
+  height: 96px;
+
+  padding: 8px 12px;
+
+  border: 2px solid #b3a083;
+  border-radius: 6px;
+
+  background: linear-gradient(
+    145deg,
+    #e4d4b8,
+    #a99372
+  );
+
+  box-shadow:
+    inset 0 0 8px rgba(0, 0, 0, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.papa-cassette-label {
+  display: flex;
+  justify-content: space-between;
+
+  color: #4d301b;
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.papa-cassette-reels {
+  position: absolute;
+
+  left: 20px;
+  right: 20px;
+  top: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.papa-reel {
+  position: relative;
+
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 4px dashed #d8c6a6;
+  border-radius: 50%;
+
+  background: #38261a;
+
+  animation: papaReelSpin 3s linear infinite;
+}
+
+.papa-reel-center {
+  width: 12px;
+  height: 12px;
+
+  border: 3px solid #c2ad89;
+  border-radius: 50%;
+
+  background: #6c4a2d;
+}
+
+.papa-reel-right {
+  animation-duration: 2.5s;
+}
+
+@keyframes papaReelSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.papa-cassette-window {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 65px;
+  height: 23px;
+
+  transform: translate(-50%, -50%);
+
+  border: 3px solid #8b7454;
+  border-radius: 4px;
+
+  background: linear-gradient(
+    90deg,
+    #49301c,
+    #1c140d,
+    #49301c
+  );
+}
+
+.papa-cassette-bottom {
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+  bottom: 5px;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: #5a3d26;
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   CASSETTE CONTROLS
+========================================= */
+
+.papa-cassette-controls {
+  display: flex;
+  justify-content: center;
+
+  gap: 14px;
+
+  margin-top: 9px;
+}
+
+.papa-cassette-controls span {
+  width: 33px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #a37b50;
+  border-radius: 3px;
+
+  background: linear-gradient(
+    180deg,
+    #3d2919,
+    #1b1008
+  );
+
+  color: #e9bd80;
+
+  font-size: 9px;
+}
+
+/* =========================================
+   FOREGROUND TABLE
+========================================= */
+
+.papa-table {
+  position: absolute;
+
+  z-index: 3;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 70px;
+
+  background: repeating-linear-gradient(
+    90deg,
+    #3e2413 0,
+    #3e2413 30px,
+    #492a16 31px,
+    #492a16 34px
+  );
+
+  border-top: 3px solid #89552f;
+
+  box-shadow:
+    0 -8px 20px rgba(0, 0, 0, 0.3),
+    inset 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   SCENE CAPTION
+========================================= */
+
+.papa-scene-caption {
+  position: absolute;
+  z-index: 6;
+
+  left: 0;
+  right: 0;
+  bottom: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 14px;
+  padding: 0 16px;
+
+  text-align: center;
+  pointer-events: none;
+}
+
+.papa-scene-caption p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.papa-scene-caption strong {
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.papa-scene-caption p {
+  color: #e4c69e;
+
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 1px;
+}
+
+.papa-scene-caption strong {
+  color: #ffd28b;
+  font-size: 12px;
+}
+
+.papa-caption-line {
+  width: 35px;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #b98950
+  );
+}
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  .papa-scene {
+    width: 96vw;
+    height: 440px;
+  }
+
+  .papa-radio-wrapper {
+    top: 28px;
+
+    transform: translateX(-50%) scale(0.86);
+    transform-origin: top center;
+  }
+
+  .papa-shelf {
+    bottom: 65px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .papa-scene {
+    width: 96vw;
+    height: 440px;
+
+    border-radius: 16px;
+  }
+
+  .papa-radio-wrapper {
+    top: 22px;
+
+    transform: translateX(-50%) scale(0.62);
+    transform-origin: top center;
+  }
+
+  .papa-scene-caption {
+    bottom: 10px;
+    gap: 8px;
+  }
+
+  .papa-scene-caption p {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+
+  .papa-scene-caption strong {
+    font-size: 10px;
+  }
+
+  .papa-caption-line {
+    width: 18px;
+  }
+
+  .papa-table {
+    height: 58px;
+  }
+}
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .papa-radio-wrapper {
+    top: 28px;
+
+    transform: translateX(-50%) scale(0.54);
+  }
+
+  .papa-scene-caption p {
+    font-size: 8px;
+  }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .papa-ambient-glow,
+  .papa-dust,
+  .papa-speaker-ring,
+  .papa-radio-equalizer span,
+  .papa-reel,
+  .papa-reel-right {
+    animation: none !important;
+  }
+}

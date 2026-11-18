@@ -1,0 +1,462 @@
+.bus-scene {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  background: #06101d;
+  border-radius: 24px;
+}
+
+/* =========================
+   SKY
+========================= */
+
+.bus-sky {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(255, 238, 190, 0.18), transparent 90px),
+    linear-gradient(
+      to bottom,
+      #030914 0%,
+      #071426 48%,
+      #102238 100%
+    );
+}
+
+.moon {
+  position: absolute;
+  top: 55px;
+  right: 12%;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #f5ead0;
+  box-shadow:
+    0 0 25px rgba(255, 235, 180, 0.45),
+    0 0 70px rgba(255, 220, 150, 0.15);
+}
+
+/* =========================
+   STARS
+========================= */
+
+.stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.8;
+  background-image:
+    radial-gradient(circle, #fff 1px, transparent 1px),
+    radial-gradient(circle, #fff 1px, transparent 1px);
+  background-size: 90px 75px, 130px 110px;
+  background-position: 10px 15px, 50px 40px;
+  animation: starsMove 8s linear infinite;
+}
+
+@keyframes starsMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-40px);
+  }
+}
+
+/* =========================
+   MOUNTAINS
+========================= */
+
+.mountains {
+  position: absolute;
+  left: -5%;
+  width: 110%;
+  bottom: 125px;
+  clip-path: polygon(
+    0 100%,
+    0 55%,
+    10% 32%,
+    18% 60%,
+    28% 20%,
+    37% 54%,
+    47% 28%,
+    56% 58%,
+    66% 17%,
+    76% 55%,
+    86% 27%,
+    100% 52%,
+    100% 100%
+  );
+}
+
+.mountains-back {
+  height: 230px;
+  background: #0b1828;
+  opacity: 0.9;
+}
+
+.mountains-front {
+  height: 190px;
+  bottom: 110px;
+  background: #07111e;
+}
+
+/* =========================
+   DISTANT LIGHTS
+========================= */
+
+.distant-lights {
+  position: absolute;
+  left: 20%;
+  bottom: 145px;
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.distant-lights span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffc15c;
+  box-shadow: 0 0 8px #ffad32;
+  animation: lightBlink 2s infinite alternate;
+}
+
+.distant-lights span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.distant-lights span:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.distant-lights span:nth-child(4) {
+  animation-delay: 1.2s;
+}
+
+@keyframes lightBlink {
+  from {
+    opacity: 0.3;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   HIGHWAY
+========================= */
+
+.highway {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 155px;
+  background:
+    linear-gradient(
+      to bottom,
+      #18202a,
+      #0b0f14 75%
+    );
+  border-top: 2px solid rgba(255, 255, 255, 0.18);
+  transform: perspective(400px) rotateX(7deg);
+  transform-origin: bottom;
+}
+
+/* Road lines */
+
+.road-line {
+  position: absolute;
+  bottom: 48px;
+  width: 130px;
+  height: 5px;
+  border-radius: 10px;
+  background: #eee;
+  opacity: 0.7;
+  animation: roadMove 1.3s linear infinite;
+}
+
+.road-line:nth-child(1) {
+  left: 10%;
+}
+
+.road-line:nth-child(2) {
+  left: 45%;
+  animation-delay: 0.4s;
+}
+
+.road-line:nth-child(3) {
+  left: 80%;
+  animation-delay: 0.8s;
+}
+
+@keyframes roadMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-220px);
+  }
+}
+
+/* =========================
+   BUS
+========================= */
+
+.bus {
+  position: absolute;
+  left: 50%;
+  bottom: 82px;
+
+  width: 390px;
+  height: 210px;
+
+  transform: translateX(-50%);
+
+  z-index: 10;
+
+  animation: busBounce 0.55s ease-in-out infinite alternate;
+}
+
+@keyframes busBounce {
+  from {
+    transform: translate(-50%, 0);
+  }
+
+  to {
+    transform: translate(-50%, -4px);
+  }
+}
+
+/* Bus roof */
+
+.bus-roof {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 350px;
+  height: 35px;
+
+  border-radius: 25px 25px 5px 5px;
+
+  background: linear-gradient(
+    to bottom,
+    #2d83a6,
+    #174e68
+  );
+
+  border: 2px solid #d18b2c;
+}
+
+/* Bus body */
+
+.bus-body {
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+
+  width: 390px;
+  height: 175px;
+
+  border-radius: 20px 20px 12px 12px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #2b7996 0%,
+      #15516a 60%,
+      #0e3446 100%
+    );
+
+  border: 3px solid #d6922b;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Bus windows */
+
+.bus-window {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+
+  height: 75px;
+
+  display: flex;
+  gap: 6px;
+
+  padding: 7px;
+
+  background: #07131d;
+
+  border: 2px solid #d6922b;
+}
+
+.bus-window div {
+  flex: 1;
+
+  border-radius: 4px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #314d60,
+      #08131d
+    );
+
+  border-right: 1px solid #b36e22;
+}
+
+/* Door */
+
+.bus-door {
+  position: absolute;
+  right: 18px;
+  bottom: 5px;
+
+  width: 45px;
+  height: 90px;
+
+  border: 2px solid #d6922b;
+
+  background: #09202c;
+}
+
+/* Wheels */
+
+.bus-wheel {
+  position: absolute;
+  bottom: -25px;
+
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #777 0 20%,
+      #222 22% 55%,
+      #050505 57%
+    );
+
+  border: 5px solid #111;
+
+  animation: wheelSpin 0.7s linear infinite;
+}
+
+.wheel-front {
+  right: 55px;
+}
+
+.wheel-back {
+  left: 55px;
+}
+
+@keyframes wheelSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   HEADLIGHTS
+========================= */
+
+.headlight {
+  position: absolute;
+  bottom: 38px;
+
+  width: 27px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  background: #fff3b0;
+
+  box-shadow:
+    0 0 15px #ffd66b,
+    0 0 40px rgba(255, 190, 70, 0.7);
+
+  z-index: 20;
+}
+
+.headlight-left {
+  left: 30px;
+}
+
+.headlight-right {
+  right: 30px;
+}
+
+/* Headlight beam */
+
+.headlight-glow {
+  position: absolute;
+
+  left: 50%;
+  bottom: 15px;
+
+  width: 520px;
+  height: 150px;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(255, 205, 100, 0.14),
+      transparent 70%
+    );
+
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .bus-scene {
+    height: 380px;
+  }
+
+  .bus {
+    width: 290px;
+    height: 160px;
+  }
+
+  .bus-body {
+    width: 290px;
+    height: 135px;
+  }
+
+  .bus-roof {
+    width: 260px;
+  }
+
+  .bus-window {
+    height: 55px;
+  }
+
+  .bus-wheel {
+    width: 45px;
+    height: 45px;
+  }
+
+  .wheel-front {
+    right: 35px;
+  }
+
+  .wheel-back {
+    left: 35px;
+  }
+}
